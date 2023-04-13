@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\AngularMovieAPI2.props" />
+</Project>
