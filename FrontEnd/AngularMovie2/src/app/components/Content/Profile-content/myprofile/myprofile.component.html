@@ -1,0 +1,52 @@
+<form [formGroup]="displayForm" style="margin-top: 1%;">
+    <div class="form-row">
+  
+      <div class="form-group col">
+        <label for="userName">Username</label>
+        <input type="text" name="" class="form-control" formControlName="userName" formControl.disabled >
+      </div>
+  
+  
+    </div>
+  
+    <div class="form-row">
+  
+      <div class="form-group col">
+        <label for="firstName">First Name</label>
+        <input type="text" formControlName="firstName" class="form-control"
+          >
+  
+      </div>
+  
+      <div class="form-group col">
+        <label for="lastName">Lastname</label>
+        <input type="text" name="" class="form-control" formControlName="lastName"
+         >
+  
+      </div>
+    </div>
+    <div class="form-row">
+  
+      <div class="form-group col">
+        <label for="emailAddress">Email</label>
+        <input type="email" name="" class="form-control" formControlName="emailAddress"
+         >
+  
+      </div>
+  
+      <div class="form-group col">
+        <label for="phone">Phone</label>
+        <input type="text" name="" class="form-control" formControlName="phone"
+         >
+  
+  
+      </div>
+    </div>
+  
+    <div class="form-group">
+  
+      <a [routerLink]="['/profile', {outlets: {'profile-content': ['edit-profile']}}]" class="btn btn-primary">Edit Profile</a>
+    </div>
+  
+  </form>
+  

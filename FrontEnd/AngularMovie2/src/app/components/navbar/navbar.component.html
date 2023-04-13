@@ -1,0 +1,21 @@
+<div  >
+    <nav class="navbar navbar-expand navbar-dark bg-dark" id="container">
+      <div class="navbar-nav" >
+          <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+          <a class="nav-item nav-link" routerLink="/profile" routerLinkActive="active">Profile</a>
+          <div *ngIf="user">
+         <a class="nav-item nav-link" style="color: red;">{{username}}</a>
+  
+          </div>
+          <a class="nav-item nav-link" *ngIf="islogin" (click)="logoutUser()">Logout</a>
+          <a class="nav-item nav-link" *ngIf="!islogin" (click)="loginUser()">Login</a>
+          <a class="nav-item nav-link" *ngIf="!islogin" (click)="registerUser()">Register</a>
+      </div>
+      <div>
+        <a class="navbar-brand" href="#"><img src="https://i.imgur.com/VIn0VYS.png"></a>
+      <div class="navbar-brand">GrabMyTicket</div>
+      </div>
+    </nav>
+  </div>
+  
+  

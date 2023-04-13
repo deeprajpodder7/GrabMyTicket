@@ -1,0 +1,21 @@
+<br>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Booking ID</th>
+      <th scope="col">Date</th>
+      <th scope="col">No. of Tickets</th>
+      <th scope="col">Show ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let booking of Booking">
+      <td>{{booking.bookingID}}</td>
+      <td>{{booking.timeStamp | date:'EE, MMMM d'}}</td>
+      <td>{{booking.numberOfSeats}}</td>
+      <td>{{booking.showID}}</td>
+    </tr>
+
+  </tbody>
+</table>
+

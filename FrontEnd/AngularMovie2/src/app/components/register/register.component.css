@@ -1,0 +1,118 @@
+.background-image {
+    background-image: url("https://as2.ftcdn.net/v2/jpg/05/28/45/09/1000_F_528450955_MI3SKmjXdhNIISjEcWynnGv8w4Ekqeho.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+      width: 100%;
+      height: 100vh;
+    position: relative;
+    overflow: hidden; /* This ensures that no other content overflows into the element */
+  }
+ body {
+    font-family: Arial, sans-serif;
+}
+
+/* Apply styles to the login form */
+.card {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 185px;
+    border: 0px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #5e6166;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.card-body {
+    padding: 20px;
+    padding-bottom: 8px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+input[type="text"],
+input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="text"].is-invalid,
+input[type="password"].is-invalid {
+    border-color: #dc3545;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    margin-top: 5px;
+}
+
+button.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+a.btn-link {
+color: #007bff;
+text-decoration: none;
+}
+
+/* Apply styles to the login form on larger screens */
+@media (min-width: 768px) {
+.card {
+width: 50%;
+}
+}
+
+/* Apply styles to the header */
+h3 {
+text-align: center;
+
+}
+
+/* Apply styles to the registration link */
+a{
+font-size: 16px;
+margin-left: 0px;
+color: white;
+}
+
+/* Apply styles to the error message */
+.invalid-feedback {
+font-size: 14px;
+}
+
+/* Apply styles to the login button */
+button.btn-primary {
+width: 100%;
+padding: 10px;
+font-size: 16px;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 20px;
+}
+
+button.btn-primary:hover {
+background-color: #0069d9;
+}
+
+button.btn-primary[disabled] {
+opacity: 0.4;
+cursor: not-allowed;
+}

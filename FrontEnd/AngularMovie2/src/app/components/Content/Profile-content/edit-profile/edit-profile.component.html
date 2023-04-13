@@ -1,0 +1,87 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()"  style="margin-top: 1%;">
+    <div class="form-row">
+  
+      <div class="form-group col">
+        <label for="userName">Username</label>
+        <input type="text" name="" class="form-control" formControlName="userName"
+          [ngClass]="{'is-invalid':submitted && editValues.userName.errors}">
+        <div *ngIf="submitted && editValues.userName.errors" class="invalid-feedback">
+          <div *ngIf="editValues.userName.errors.required">
+            Username is requiured.
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group col">
+        <label for="password">Password
+        </label>
+        <input type="password" name="" class="form-control" formControlName="password"
+          [ngClass]="{'is-invalid':submitted && editValues.password.errors}">
+        <div *ngIf="submitted && editValues.password.errors" class="invalid-feedback">
+          <div *ngIf="editValues.password.errors.required">
+            Password is requiured.
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="form-row">
+  
+      <div class="form-group col">
+        <label for="firstName">First Name</label>
+        <input type="text" formControlName="firstName" class="form-control"
+          [ngClass]="{'is-invalid':submitted && editValues.firstName.errors}">
+        <div *ngIf="submitted && editValues.firstName.errors" class="invalid-feedback">
+          <div *ngIf="editValues.firstName.errors.required">
+            First Name is required
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group col">
+        <label for="lastName">Lastname</label>
+        <input type="text" name="" class="form-control" formControlName="lastName"
+          [ngClass]="{'is-invalid':submitted && editValues.lastName.errors}">
+        <div *ngIf="submitted && editValues.lastName.errors" class="invalid-feedback">
+          <div *ngIf="editValues.lastName.errors.required">
+            Lastname is requiured.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+  
+      <div class="form-group col">
+        <label for="emailAddress">Email</label>
+        <input type="email" name="" class="form-control" formControlName="emailAddress"
+          [ngClass]="{'is-invalid':submitted && editValues.emailAddress.errors}">
+        <div *ngIf="submitted && editValues.emailAddress.errors" class="invalid-feedback">
+          <div *ngIf="editValues.emailAddress.errors.required">
+            Emailaddress is requiured.
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group col">
+        <label for="phone">Phone</label>
+        <input type="text" name="" class="form-control" formControlName="phone"
+          [ngClass]="{'is-invalid':submitted && editValues.phone.errors}">
+        <div *ngIf="submitted && editValues.phone.errors" class="invalid-feedback">
+          <div *ngIf="editValues.phone.errors.required">
+            Phone is requiured.
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <button [disabled]="loading" class="btn btn-primary">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Save
+      </button>
+      <a [routerLink]="['/profile', {outlets: {'profile-content': ['myprofile']}}]" class="btn btn-link">Cancel</a>
+    </div>
+  
+  </form>
+  

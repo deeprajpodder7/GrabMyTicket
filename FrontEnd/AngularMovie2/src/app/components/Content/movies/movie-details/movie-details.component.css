@@ -1,0 +1,48 @@
+.label {
+    display: table-cell;
+    font-size: 12px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .button-row {
+    display: table-cell;
+    width: 490px;
+  }
+  
+  .button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+/*   
+  .col-md-8{
+    margin-right: 30px;
+  } */
+
+  .background-image {
+    background-image: url("https://as1.ftcdn.net/v2/jpg/04/52/77/68/1000_F_452776811_0iJVuEMLXPFhYf4E89X9ZGOgFN85ipNv.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+      width: 100%;
+      height: 100vh;
+    position: relative;
+    overflow: hidden; /* This ensures that no other content overflows into the element */
+  }
+  .font{
+    color:white;
+  }
+  .shows{
+    margin:5px;
+  }

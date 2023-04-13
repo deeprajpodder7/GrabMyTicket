@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+
+<div class="background-image">
+<div class="card mb-4" style="max-width: 1000px;" class="col-md-4 offset-md-2 mt-5" *ngIf="Movie">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{Movie.imgLink}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h1 class="card-title" class="font">{{Movie.title}}</h1>
+        <h6 style="color:black;">Duration:</h6>
+        <h6 class="font">{{convertMinuteToHour(Movie.duration)}}</h6>
+        <h5 class="card-text" class="font">{{Movie.description}}</h5>
+        <h5 class="card-text" class="text-muted" class="font">Genres : {{Movie.genres}}</h5> 
+        <div class="card-text">
+
+          <mat-form-field appearance="fill">
+            <mat-label>Select Date & Time</mat-label>
+            <mat-select [(value)]="selected">
+              <mat-option *ngFor="let date of week" [value]=date> {{ date |date:'EE, MMM d'}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div *ngFor="let item of shows">
+            <section *ngIf="(selected | date:'EE, MMM d') == (item.date|date:'EE, MMM d')" class="button-container">
+              <div class="button-row" >
+                <button class="shows" [routerLink]="['/movie',Movie.movieID,'show',item.showID]" mat-raised-button color="primary">{{item.startTime|date:'hh:mm a'}}</button>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+<!--
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  </div>
+  <img src="..." class="card-img-bottom" alt="...">
+</div>
+-->

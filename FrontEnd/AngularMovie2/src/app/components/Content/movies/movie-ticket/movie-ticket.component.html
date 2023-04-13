@@ -1,0 +1,207 @@
+<app-navbar></app-navbar>
+<div class="background-image">
+<div class="container" class="col-md-0 offset-md-1 mt-5" *ngIf="Movie && Show">
+  <div ng-init=" getCinemaHall()"></div>
+
+  <div class="row">
+    <div class="col">
+      <div>
+        <strong style="font-size: 1.8em;"> {{Movie.title}}</strong>
+
+      </div>
+    </div>
+    <div class="col">
+    </div>
+
+
+    <div class="col">
+      <strong style="font-size: 1.2em;">Movie Hall</strong>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div>
+        <strong class="font"> {{convertMinuteToHour(Movie.duration)}}</strong>
+      </div>
+    </div>
+    <div class="col">
+      <div>
+        <strong class="font">{{ Show.date |date:'EE, d MMM'}}. &nbsp; {{Show.startTime |date:'hh:mm'}} -
+          {{Show.endTime |date:'hh:mm'}} </strong>
+      </div>
+      <strong class="font" > Allowed for {{Movie.censorship}}</strong>
+    </div>
+    <div class="col">
+      <div *ngIf="CinemaHall">
+        <strong class="font"> {{CinemaHall.name}}</strong>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div style="margin-top: 4%;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <strong style="font-size: 1.5em;">Choose Tickets</strong>
+    </div>
+    <div class="col">
+    </div>
+    <div class="col">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <h3>Ticket</h3>
+          <br>
+        </div>
+        <div class="col">
+          <div class="qty mt-0">
+            <span class="minus bg-dark" (click)="onMinus(normalTicket,'normalTicket')">-</span>
+            <span class="count" id="normalTicket">{{normalTicket}}</span>
+            <span class="plus bg-dark" (click)="onPlus(normalTicket,'normalTicket')">+</span>
+          </div>
+          <strong>Gold: {{ 149 | currency:'INR'}}</strong><br>
+          <strong> Platinum: {{ 249 | currency:'INR'}}</strong>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <strong style="font-size: 17px;">Choose Snacks</strong>
+          <h1></h1>
+          <h4>Soft Drink 500ml</h4>
+          <br>
+          <h4>Pop Corn </h4>
+          <br>
+          <h4>Nachos</h4>
+          <div>
+
+          </div>
+          <div>
+          </div>
+        </div>
+
+        <div class="col">
+          <strong style="font-size: 17px;">Quantity</strong>
+          <h1></h1>
+
+          <div class="qty">
+            <span class="minus bg-dark" (click)="onMinus(softDrink,'softDrink')">-</span>
+            <span class="count" id="softDrink">{{softDrink}}</span>
+            <span class="plus bg-dark" (click)="onPlus(softDrink,'softDrink')">+</span>
+          </div>
+          <strong>{{ 79 | currency:'INR'}}</strong>
+
+          <div class="qty mt-3">
+            <span class="minus bg-dark" (click)="onMinus(popCorn,'popCorn')">-</span>
+            <span class="count" id="popCorn">{{popCorn}}</span>
+            <span class="plus bg-dark" (click)="onPlus(popCorn,'popCorn')">+</span>
+          </div>
+          <strong> {{ 129 | currency:'INR'}}</strong>
+
+          <div class="qty mt-3">
+            <span class="minus bg-dark" (click)="onMinus(snackMenu,'snackMenu')">-</span>
+            <span class="count" id="snackMenu">{{snackMenu}}</span>
+            <span class="plus bg-dark" (click)="onPlus(snackMenu,'snackMenu')">+</span>
+          </div>
+          <strong>{{ 99 | currency:'INR'}}</strong>
+
+        </div>
+        <div class="col">
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <strong style="font-size: 1.5em;">Choose Hall Seats</strong>
+      <div class="moviehall">
+        <ul class="showcase">
+          <li>
+            <div class="seat"></div>
+            <small>Gold</small>
+          </li>
+
+          <li>
+            <div class="seat selected"></div>
+            <small>Selected</small>
+          </li>
+
+          <li>
+            <div class="seat occupied"></div>
+            <small>Occupied</small>
+          </li>
+          <li>
+            <div class="seat vip"></div>
+            <small>Platinum</small>
+          </li>
+        </ul>
+
+        <div class="container" *ngIf="ShowSeats">
+          <div class="screen" style="display:inline-flex;"></div>
+          <div class="moviehall">
+            <div >
+            <div class="row">
+              <div class="col-md-2 offset-md-0 mt-1" *ngFor="let showseat of ShowSeats; let i = index">
+              <div  [ngClass]="{'selected': showseat.active,'vip':showseat.status ==2 && !showseat.active,'':!showseat.active,'occupied':showseat.bookingID}"
+                class="seat" (click)="onSelected(showseat)" style="color: white;">
+                <!-- <h3>{{showseat.cinemaSeatID}}</h3> -->
+
+              </div>
+            </div>
+
+              <!--
+              div ngfor
+                div med seat
+                 br ng if I % n
+              /div
+               brug displayline
+
+
+             -->
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<br>
+<mat-card  style="background-color: rgb(43, 42, 42); padding: 28px; color: white;" class="col-md-10 offset-md-1 mt-1">
+  <div class="row">
+    <div class="col">
+      <h2 id="cart">CART</h2>
+    </div>
+    <div class="col">
+      <div>
+        <h2>{{normalTicket}} Tickets:  &nbsp;&nbsp;&nbsp;&nbsp; {{ totalTicketPrice | currency:'INR'}} &nbsp;&nbsp;</h2>
+      </div>
+    </div>
+    <div class="col">
+      <h2>&nbsp;&nbsp; Snacks: {{totalSnackPrice | currency:'INR'}} </h2>
+    </div>
+    <div class="col">
+      <h2>&nbsp;&nbsp; Total:  {{ totalSnackPrice+totalTicketPrice | currency:'INR'}}</h2>
+    </div>
+    <div class="col" id="book">
+        <button mat-raised-button color="primary" (click)="onBooking()">Book</button>
+    </div>
+  </div>
+</mat-card>
+</div>

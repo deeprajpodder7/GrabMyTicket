@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>
+<div class="background-image">
+<div class="col-md-6 offset-md-3 mt-5">
+<div class="card">
+  <h4 class="card-header">User Register</h4>
+
+  <div class="card-body">
+    <form [formGroup]= "RegisterForm" (ngSubmit)="onRegister()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" name="" class="form-control" formControlName="username" [ngClass]="{'is-invalid':submitted && userForm.username.errors}">
+        <div *ngIf="submitted && userForm.username.errors" class="invalid-feedback">
+            <div *ngIf="userForm.username.errors.required">
+              Username is requiured.
+            </div>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="" class="form-control" formControlName="password" [ngClass]="{'is-invalid':submitted && userForm.password.errors}">
+        <div *ngIf="submitted && userForm.password.errors" class="invalid-feedback">
+            <div *ngIf="userForm.password.errors.required">
+              Password is requiured.
+            </div>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="firstname">Firstname</label>
+        <input type="text" name="" class="form-control" formControlName="firstname" [ngClass]="{'is-invalid':submitted && userForm.firstname.errors}">
+        <div *ngIf="submitted && userForm.firstname.errors" class="invalid-feedback">
+            <div *ngIf="userForm.firstname.errors.required">
+              Firstname is requiured.
+            </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Lastname</label>
+        <input type="text" name="" class="form-control" formControlName="lastname" [ngClass]="{'is-invalid':submitted && userForm.lastname.errors}">
+        <div *ngIf="submitted && userForm.lastname.errors" class="invalid-feedback">
+            <div *ngIf="userForm.lastname.errors.required">
+              Lastname is requiured.
+            </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="emailaddress">Emailaddress</label>
+        <input type="email" name="" class="form-control" formControlName="emailaddress" [ngClass]="{'is-invalid':submitted && userForm.emailaddress.errors}">
+        <div *ngIf="submitted && userForm.emailaddress.errors" class="invalid-feedback">
+            <div *ngIf="userForm.emailaddress.errors.required">
+              Emailaddress is requiured.
+            </div>
+        </div>
+      </div>
+
+      
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="number" name="" class="form-control" formControlName="phone" [ngClass]="{'is-invalid':submitted && userForm.phone.errors}">
+        <div *ngIf="submitted && userForm.phone.errors" class="invalid-feedback">
+            <div *ngIf="userForm.phone.errors.required">
+              Phone is requiured.
+            </div>
+        </div>
+
+      </div>
+      <div *ngIf="registerError" style="color: red;">
+        <div >
+          <p>{{showErrorMessage}}</p>
+        </div>
+      </div>
+      <button [disabled]="loading" type="submit" class="btn btn-primary">Register</button>
+      <button class="btn btn-primary"><a routerLink="../login" >Cancel</a> </button>
+    </form>
+  </div>
+
+</div>
+</div>
+</div>

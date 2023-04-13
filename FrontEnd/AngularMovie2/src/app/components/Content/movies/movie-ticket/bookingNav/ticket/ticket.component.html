@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* added css styles */
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      
+      .card {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+       
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
+      .qrcode-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+      }
+      
+      .qrcode {
+        width: 100%;
+        max-width: 140px;
+        
+      }
+      
+      .btn-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+      }
+      
+      .back-btn {
+        width: 100%;
+        max-width: 200px;
+      }
+      
+      h2, h3, h4, h5, h6 {  
+        text-align: center;
+        margin: 15px;
+      }
+      
+      /* added css styles */
+    </style>
+  </head>
+  <body>
+    <app-navbar></app-navbar>
+    <div *ngIf="qrValue">
+      <mat-card class="card mt-3">
+        <mat-card style="background-color: rgb(73, 108, 145); color: white;">
+          <h2>Movie Ticket</h2>
+        </mat-card>
+        <br>
+        <div class="qrcode-container mt-3">
+          <div class="qrcode">
+            <qrcode qrdata="{{qrValue}}" size="200" errorCorrectionLevel="M"></qrcode>
+          </div>
+          <div class="qr-info"></div>
+        </div>
+        <br>
+        <mat-card style="background-color: rgb(46, 59, 73); color: white;">
+          <h3>Payment was successful.</h3>
+          <h5>Upon pickup, Scan your QR-CODE into the vending machine.</h5>
+        </mat-card>
+      </mat-card>
+      <mat-card class="card mt-3" style="background-color: rgb(43, 44, 44); color: white;">
+        <div class="btn-container">
+          <button mat-raised-button color="accent" class="back-btn" routerLink="/">Back To Home</button>
+        </div>
+      </mat-card>
+    </div>
+  </body>
+</html>

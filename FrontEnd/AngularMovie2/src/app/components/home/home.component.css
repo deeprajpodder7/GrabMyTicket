@@ -1,0 +1,19 @@
+.background-image {
+    background-image: url("https://as2.ftcdn.net/v2/jpg/02/86/32/15/1000_F_286321513_O0khpG7mdQYZe7sxPzi8ELxgh5RgFS4T.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+      width: 100%;
+      height: 100vh;
+    position: relative;
+    overflow: hidden; /* This ensures that no other content overflows into the element */
+  }
+  .text{
+   
+    color:white;
+    font-weight: bold;
+    text-align: center;
+    font-size: larger;
+    margin-top: 50px;
+    
+  }

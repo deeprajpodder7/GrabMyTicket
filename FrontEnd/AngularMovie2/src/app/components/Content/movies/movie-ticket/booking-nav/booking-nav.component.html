@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+
+<div class="container my-3" *ngIf="Movie && Payment && Show">
+  <mat-card class="card col-md-8 offset-md-2">
+
+    <mat-card class="header-card">
+      <h2>Movie Ticket Overview</h2>
+    </mat-card>
+    
+    <div class="movie-details-card">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="{{Movie.imgLink}}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h1 class="card-title">{{Movie.title}}</h1>
+            <h4 class="card-text text-muted"><span style="color:blue">Genres:</span> {{Movie.genres}}</h4>
+            <h4 class="card-text text-muted"><span style="color:blue"> Start Time:</span> {{Show.date |date:'EE, d MMM'}}.&nbsp;{{Show.startTime |date:'hh:mm'}} </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <mat-card class="confirmation-card">
+      <h2>Confirmation</h2>
+      <h4>You are about to pay for tickets to {{Movie.title}} in GrabMyTicket.</h4>
+    </mat-card>
+
+  </mat-card>
+
+  <mat-card class="payment-card col-md-4 offset-md-4 mt-3">
+    <span class="total-amount">Total: {{Payment.amount | currency: "INR"}}</span>
+    <button mat-raised-button color="accent" class="pay-button" [routerLink]="['/movieticket', Payment.paymentID]">PAY</button>
+  </mat-card>
+</div>
